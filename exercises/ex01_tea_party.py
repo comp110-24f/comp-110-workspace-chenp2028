@@ -3,41 +3,37 @@
 __author__ = "730747329"
 
 
-""" This function will be calling the other functions"""
-
-
 def main_planner(guests: int) -> None:
-    teaBags = tea_bags(people=guests)
-    treat = treats(ppl=guests)
+    """The main_planner function will be the entrypoint of your program"""
+
+    # teaBags = tea_bags(people=guests)
+    # treat = treats(ppl=guests)
     print("A cozy tea party for " + str(guests) + " people")
-    print("Tea Bags: " + str(teaBags))
-    print("Treats: " + str(treat))
-    print("Cost: $" + str(cost(tea_count=teaBags, treat_count=treat)))
+    print("Tea Bags: " + str(tea_bags(people=guests)))
+    print("Treats: " + str(treats(ppl=guests)))
+    print(
+        "Cost: $"
+        + str(cost(tea_count=tea_bags(people=guests), treat_count=treats(ppl=guests)))
+    )
     return None
 
 
-"This function will return the number of teabags "
-
-
 def tea_bags(people: int) -> int:
-    total = people * 2
-    return total
+    """The tea_bags function will return the number of teabags"""
 
-
-""" This function will return the number of treat needed"""
+    return people * 2
 
 
 def treats(ppl: int) -> int:
-    total = int(1.5 * tea_bags(people=ppl))
-    return total
+    """The treats function will return the number of treat needed"""
 
-
-"""This Function will return the total cost of the tea party"""
+    return int(1.5 * tea_bags(people=ppl))
 
 
 def cost(tea_count: int, treat_count: int) -> float:
-    total = (0.5 * tea_count) + (0.75 * treat_count)
-    return total
+    """The cost Function will return the total cost of the tea party"""
+
+    return (0.5 * tea_count) + (0.75 * treat_count)
 
 
 if __name__ == "__main__":

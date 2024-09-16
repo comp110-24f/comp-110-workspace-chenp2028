@@ -5,7 +5,7 @@ __author__ = "730747329"
 
 # this function will check and make the word has 5 characters
 def input_word() -> str:
-    word: str = input("Enter a 5-character word: ")
+    word: str = input("Enter a 5-character word")
 
     if len(word) != 5:
         print("Error: Word must contain 5 characters.")
@@ -13,12 +13,12 @@ def input_word() -> str:
         print("'" + word + "'")
     else:
         print("'" + word + "'")
-    return word
+        return word
 
 
 # check and make sure only one character is inputted
 def input_letter() -> str:
-    letter: str = input("Enter a single character: ")
+    letter: str = input("Enter a single character")
 
     if len(letter) != 1:
         print("Error: Character must be a single character.")
@@ -26,12 +26,11 @@ def input_letter() -> str:
         print("'" + letter + "'")
     else:
         print("'" + letter + "'")
-
-    return letter
+        return letter
 
 
 # calls the input_word and input_letter to make the wordle work
-def contains_char(word: str = input_word(), letter: str = input_letter()) -> None:
+def contains_char(word: str, letter: str) -> None:
     print("Searching for " + letter + " in " + word)
     i = 0  # index checker
     count = 0  # instance counter
@@ -45,15 +44,16 @@ def contains_char(word: str = input_word(), letter: str = input_letter()) -> Non
     # Printing out the instances
     if count == 0:
         print("No instances of " + letter + " found in " + word)
+    elif count == 1:
+        print(str(count) + " instance of " + letter + " found in " + word)
     else:
         print(str(count) + " instances of " + letter + " found in " + word)
-
     return None
 
 
 # calling the contains_char()
-def main():
-    contains_char()
+def main() -> None:
+    contains_char(word=input_word(), letter=input_letter())
 
 
 # calls the main()

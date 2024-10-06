@@ -18,7 +18,7 @@ def input_guess(length: int) -> str:
             if length == len(word):
                 check = False  # break when false
 
-    return word  # returning the word
+    return word  # type: ignore # returning the word
 
 
 def contains_char(word: str, char: str) -> bool:

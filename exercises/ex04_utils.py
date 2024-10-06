@@ -8,11 +8,14 @@ def all(list1: list[int], num: int) -> bool:
     result: bool = True
     i: int = 0
 
+    if len(list1) == 0:
+        result = False  # result becomes false if the list is empty
+
     while i < len(list1) and result:
-        if list1[i] != num or list1 == []:
+        if list1[i] != num:  # false if the item and number doesn't equal
             result = False
         i += 1
-    print(result)
+    print(result)  # printing our result
     return result
 
 
@@ -37,12 +40,12 @@ def is_equal(l1: list[int], l2: list[int]) -> bool:
     result: bool = True
     i: int = 0
 
-    if len(l1) == len(l2):
+    if len(l1) == len(l2):  # checking to make sure the length is the same
         while i < len(l1):
             if l1[i] != l2[i]:
                 result = False
             i += 1
-    else:
+    else:  # if not, result is false
         result = False
 
     return result
@@ -52,7 +55,7 @@ def extend(l1: list[int], l2: list[int]) -> None:
     """This function will mutate the first list by append list 2 to it"""
     i: int = 0
 
-    while i < len(l2):
-        l1.append(l2[i])
+    while i < len(l2):  # loop throught list 2
+        l1.append(l2[i])  # appends a item to list 1
         i += 1
     return None

@@ -9,7 +9,7 @@ def all(list1: list[int], num: int) -> bool:
     i: int = 0
 
     while i < len(list1) and result:
-        if list1[i] != num:
+        if list1[i] != num or list1 == []:
             result = False
         i += 1
     print(result)

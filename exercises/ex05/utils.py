@@ -46,13 +46,8 @@ def add_at_index(l1: list[int], element: int, index: int) -> None:
     else:
         l1.append(0)  # appending a placeholder to the end of the list
 
-        for i in range(len(l1) - 1, index, -1):
-            l1[i] = l1[i - 1]
+        for i in range(len(l1) - 1, index, -1):  # looping thru the list backwards
+            l1[i] = l1[i - 1]  # setting the current element to the one before it
         l1[index] = element  # adding the element to the desired index
 
     return None
-
-
-l1 = [1, 2, 3]
-add_at_index(l1, 0, 0)
-print(l1)

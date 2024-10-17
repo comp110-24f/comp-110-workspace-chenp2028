@@ -16,7 +16,7 @@ def test_evens_return() -> None:
 
 def test_evens_mutate() -> None:
     """Make sure list is not mutated"""
-    l1 = [1, 2, 3, 4]
+    l1: list[int] = [1, 2, 3, 4]
     only_evens(l1)
     assert l1 == [1, 2, 3, 4]  # listed is not mutated after calling
     return None
@@ -55,8 +55,8 @@ def test_sub_edge() -> None:
 
 
 def test_add_mutate_return() -> None:
-    """Making sure the list is correctly mutated"""
-    list1 = [1, 2, 3, 4]
+    """Making sure the list is mutated"""
+    list1: list[int] = [1, 2, 3, 4]
     add_at_index(list1, 0, 1)
     assert list1 == [
         1,
@@ -68,17 +68,17 @@ def test_add_mutate_return() -> None:
 
 
 def test_add_edge() -> None:
-    """Edge case for add_in_index funcion: adding at index 0"""
-    list1 = [1, 2, 3, 4]
+    """Make sure add_in_index functions correctly"""
+    list1: list[int] = [1, 2, 3, 4]
     add_at_index(list1, 0, 0)
     assert list1 == [0, 1, 2, 3, 4]  # 0 is added to index 0
     return None
 
 
 def test_add_at_index_raises_indexerror():
-    """Test that add_at_index raises an IndexError for an invalid index."""
+    """Edge case: Test that add_at_index raises an IndexError for an invalid index."""
     # your object to pass to add_at_index function
-    list1 = [1, 2, 3, 4]
+    list1: list[int] = [1, 2, 3, 4]
     with pytest.raises(IndexError):
         add_at_index(list1, 0, 6)
         # an IndexError is raised for the case when the add_at_index

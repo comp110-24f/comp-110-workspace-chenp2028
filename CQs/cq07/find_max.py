@@ -4,30 +4,21 @@ __author__ = "730747329"
 
 
 def find_and_remove_max(l1: list[int]) -> int:
-    max = 0
 
-    if len(l1) == 0:
-        max = -1
-        print(max)
-        return max
+    if len(l1) == 0:  # return -1 if the list is empty
+        return -1
 
-    elif len(l1) == 1:
-        max = l1[0]
-        l1.pop(0)
-        print(max)
-        return max
-    else:
-        for i in l1:
-            if i > max:
-                max = i
-        print(max)
+    max = l1[0]  # setting max to the first item in the list
+    for i in range(1, len(l1)):  # looping thru the list
+        if l1[i] > max:
+            max = l1[i]  # updates max if the item is greater
+    print(max)  # print out max
 
-        i = 0
-        while i < len(l1):
-            if max == l1[i]:
-                l1.pop(i)
-            i += 1
-        if max == l1[0]:
-            l1.pop(0)
+    i = 0  # count variable
+    while i < len(l1):  # looping thru the list
+        if max == l1[i]:
+            l1.pop(i)  # removing the max value
+        else:
+            i += 1  # increase count by 1 if the item is not removed
 
-        return max
+    return max  # return max
